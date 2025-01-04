@@ -6,8 +6,8 @@ pipeline {
                 script {
                     // Checkout the first version (e.g., main branch)
                     dir('x64') {
-                        checkout([$class: 'GitSCM', branches: [[name: 'master']],
-                                  userRemoteConfigs: [[url: 'https://github.com/kmikhailv/two_repos.git']]])
+                        checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/kmikhailv/two_repos.git']]],
+                                     extensions: [[$class: 'SubmoduleOption', recursiveSubmodules: true]])
                     }
 
                     // Checkout the second version (e.g., specific tag)
