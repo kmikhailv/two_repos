@@ -27,6 +27,7 @@ pipeline {
                     dir('arm') {
                         sh 'pwd; touch arm.txt'
                     }
+                    sh 'ls -lR .'
                 }
             }
         }
