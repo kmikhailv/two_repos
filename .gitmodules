@@ -1,0 +1,3 @@
+[submodule "two_repos"]
+	path = two_repos
+	url = https://github.com/kmikhailv/two_repos.git
