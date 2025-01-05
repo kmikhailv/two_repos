@@ -12,8 +12,14 @@ pipeline {
 
                     // Checkout the second version (e.g., specific tag)
                     dir('arm') {
-                        checkout([$class: 'GitSCM', branches: [[name: 'master']],
-                                  userRemoteConfigs: [[url: 'https://github.com/kmikhailv/two_repos.git']]])
+                 checkout([
+                    $class: 'GitSCM',
+                    branches: scm.branches,
+                    userRemoteConfigs: scm.userRemoteConfigs,
+                    extensions: [
+                        [$class: 'SubmoduleOption', recursiveSubmodules: true]
+                    ]
+                ])
                     }
                 }
             }
